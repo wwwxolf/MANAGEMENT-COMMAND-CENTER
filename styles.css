@@ -74,3 +74,6 @@ body{background:var(--bg);color:var(--text)}
 
 /* Achievement progress with management thresholds */
 .achievement-scale{position:relative;height:9px;margin:8px 0 25px;background:#ece8df;border-radius:7px;overflow:visible}.achievement-fill{height:100%;border-radius:7px}.achievement-fill.negative{background:#ef3340}.achievement-fill.positive{background:#23835c}.threshold{position:absolute;top:-5px;height:19px;border-left:1px dashed #7d8791;opacity:.85}.t80{left:80%}.t90{left:90%}.t100{left:100%}.threshold-label{position:absolute;top:14px;transform:translateX(-50%);font-size:7px;font-weight:800;color:#7d8791}.l80{left:80%}.l90{left:90%}.l100{left:100%}
+
+/* Achievement traffic-light bands: <80 red, 80-<90 amber, >=90 green */
+.achievement-fill.status-red{background:#ef3340}.achievement-fill.status-yellow{background:#d6a21e}.achievement-fill.status-green{background:#23835c}
