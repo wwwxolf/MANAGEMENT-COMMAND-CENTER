@@ -467,3 +467,24 @@ body.sidebar-collapsed .nav-group>.board-parent:before{content:"◉";font-size:1
   color:#8a7551!important;
   font-weight:800!important;
 }
+
+
+/* 2026 annual card — dual performance context */
+.annual-compare-dual{
+  flex-direction:row!important;
+  align-items:flex-start!important;
+  gap:14px!important;
+}
+.annual-compare-dual>span{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-end!important;
+  gap:3px!important;
+}
+.annual-progress{
+  font-style:normal!important;
+  font-size:9px!important;
+  line-height:1!important;
+  font-weight:900!important;
+  color:#173b63!important;
+}
