@@ -523,3 +523,10 @@ body.sidebar-collapsed .nav-group>.board-parent:before{content:"◉";font-size:1
 .branch-share-card strong{display:block!important;margin:7px 0 3px!important;font-size:16px!important}
 .branch-breakdown-note{margin-top:9px!important;font-size:7px!important;color:#9a6b10!important}
 @media(max-width:899px){.detail-sales-annual .annual-cards-row{grid-template-columns:1fr!important}.branch-share-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+
+/* Annual card collapse controls */
+.detail-sales-annual .detail-annual-click{position:relative!important;padding-bottom:34px!important}
+.detail-sales-annual .breakdown-link{position:absolute!important;left:16px!important;bottom:12px!important;margin:0!important}
+.collapse-arrow{display:inline-block!important;margin-left:3px!important;font-size:12px!important;line-height:6px!important;transition:transform .18s ease!important}
+.detail-annual-click.expanded .collapse-arrow{transform:rotate(180deg)!important}
+.annual-branch-breakdown{margin-top:-2px!important;margin-bottom:14px!important}
