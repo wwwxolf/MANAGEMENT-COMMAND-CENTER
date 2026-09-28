@@ -322,3 +322,10 @@ body{background:var(--bg);color:var(--text)}
 }
 .q-growth.up{color:#1f6b35!important}
 .q-growth.down{color:#b42318!important}
+
+
+/* Annual revenue YoY indicator */
+.annual-box>span{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px!important}
+.annual-growth{font-style:normal!important;font-size:8px!important;font-weight:900!important;white-space:nowrap!important}
+.annual-growth.up{color:#2e7d32!important}
+.annual-growth.down{color:#c62828!important}
