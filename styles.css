@@ -307,3 +307,18 @@ body{background:var(--bg);color:var(--text)}
 .q-growth.up{color:#2e7d32!important}
 .q-growth.down{color:#c62828!important}
 @media(max-width:899px){.quarter-year-guide{flex-wrap:wrap!important}.quarter-year-guide small{width:100%!important;margin-left:0!important}}
+
+
+/* QoQ indicator sits inside each quarterly bar */
+.q-growth{
+  top:auto!important;
+  bottom:12px!important;
+  z-index:4!important;
+  font-size:7px!important;
+  padding:2px 3px!important;
+  border-radius:3px!important;
+  background:rgba(255,255,255,.88)!important;
+  box-shadow:0 0 0 1px rgba(255,255,255,.35)!important;
+}
+.q-growth.up{color:#1f6b35!important}
+.q-growth.down{color:#b42318!important}
