@@ -54,3 +54,13 @@ body{background:var(--bg);color:var(--text)}
 .current-dot{fill:var(--gold-current)!important}
 .annual-box.current{border-color:var(--gold-current);box-shadow:inset 4px 0 var(--gold-current);background:#fff9e9}
 .current-label{color:#a97700!important}
+
+/* Improve monthly journey legibility */
+.journey24{stroke:#7f8b96!important;stroke-width:2.4!important;stroke-dasharray:none!important}
+.journey25{stroke:#173b63!important;stroke-width:2.7!important}
+.journey26{stroke:#e0a51b!important;stroke-width:3.4!important}
+.dot24{fill:#7f8b96!important}.dot25{fill:#173b63!important}.dot26{fill:#e0a51b!important}
+.journey-point circle{stroke:#fffdf8;stroke-width:2}
+.journey-point text{font-size:7.5px;fill:#526170;font-weight:800}
+.journey-plot svg{height:215px}
+.jgrid{stroke:#ddd6c9;stroke-width:1}
