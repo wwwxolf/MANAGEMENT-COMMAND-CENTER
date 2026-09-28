@@ -436,3 +436,17 @@ body.sidebar-collapsed .nav-group>.board-parent:before{content:"◉";font-size:1
   body.sidebar-collapsed .side .nav button:first-letter{font-size:inherit!important}
   body.sidebar-collapsed .side .nav-group>.board-parent:before{content:none!important}
 }
+
+
+/* Keep sidebar collapse control fully visible */
+.side{overflow:visible!important}
+.sidebar-toggle{
+  right:-11px!important;
+  z-index:999!important;
+  box-sizing:border-box!important;
+}
+.main{position:relative!important;z-index:1!important}
+.side{z-index:100!important}
+@media(max-width:899px){
+  .sidebar-toggle{right:-11px!important}
+}
