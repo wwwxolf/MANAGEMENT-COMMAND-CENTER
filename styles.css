@@ -488,3 +488,23 @@ body.sidebar-collapsed .nav-group>.board-parent:before{content:"◉";font-size:1
   font-weight:900!important;
   color:#173b63!important;
 }
+
+/* MBG East branch performance drill-down */
+.mtd-drill-card{cursor:pointer!important;transition:transform .15s ease,box-shadow .15s ease!important}
+.mtd-drill-card:hover{transform:translateY(-1px)!important;box-shadow:0 8px 20px rgba(23,59,99,.08)!important}
+.drill-hint{float:right!important;font-size:7px!important;letter-spacing:.6px!important;color:#9a6b10!important}
+.branch-page-heading{margin-bottom:14px!important}
+.branch-overview{margin:8px 0 18px!important}
+.branch-overview-grid{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:8px!important}
+.branch-overview-card{appearance:none!important;text-align:left!important;background:#fffdf8!important;border:1px solid #ded8cc!important;border-radius:8px!important;padding:12px!important;cursor:pointer!important;font-family:inherit!important}
+.branch-overview-card:hover{border-color:#d9a62e!important}
+.branch-overview-card span{display:block!important;font-size:8px!important;font-weight:850!important;letter-spacing:.7px!important;color:#173b63!important}
+.branch-overview-card strong{display:block!important;margin:8px 0 4px!important;font-size:17px!important}
+.branch-overview-card small,.branch-overview-card em{display:block!important;font-size:7px!important;font-style:normal!important;color:#7b858f!important}
+.branch-snapshot{margin:0 0 20px!important;padding:14px!important;border:1px solid #ded8cc!important;border-radius:10px!important;background:rgba(255,253,248,.45)!important;scroll-margin-top:16px!important}
+.branch-snapshot-head{display:flex!important;align-items:center!important;justify-content:space-between!important;margin-bottom:6px!important}
+.branch-snapshot-head h2{margin:3px 0 0!important;color:#173b63!important}
+.branch-data-status{font-size:7px!important;font-weight:850!important;letter-spacing:.7px!important;color:#c62828!important;border:1px solid #e7b7b2!important;border-radius:999px!important;padding:5px 8px!important}
+.branch-annual{margin:8px 0!important}
+.branch-exec{margin-top:8px!important}
+@media(max-width:899px){.branch-overview-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.branch-snapshot{padding:10px!important}}
