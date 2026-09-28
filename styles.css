@@ -222,3 +222,27 @@ body{background:var(--bg);color:var(--text)}
 .mtd-metrics-box .meta strong.gap.negative{
   color:#c62828!important;
 }
+
+
+/* MTD metrics — two columns */
+.mtd-metrics-box{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  padding:0!important;
+}
+.mtd-metrics-box .meta{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  justify-content:center!important;
+  gap:5px!important;
+  padding:11px 14px!important;
+}
+.mtd-metrics-box .meta + .meta{
+  border-top:0!important;
+  border-left:1px solid #eee8dc!important;
+}
+.mtd-metrics-box .meta strong{
+  font-size:14px!important;
+  align-self:flex-start!important;
+}
