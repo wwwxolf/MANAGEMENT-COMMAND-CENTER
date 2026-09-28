@@ -71,3 +71,6 @@ body{background:var(--bg);color:var(--text)}
 
 /* MTD status: below target red, on/above target green */
 .mtd-main{display:flex;align-items:center;gap:16px;margin:8px 0 15px}.mtd-main .big{margin:0}.achievement{padding-left:14px;border-left:1px solid #ded7c8;font-size:17px;font-weight:850;line-height:1}.achievement small{display:block;margin-top:5px;font-size:7px;letter-spacing:.9px;color:#7d8791}.achievement.negative,.gap.negative{color:#c62828!important}.achievement.positive,.gap.positive{color:#23835c!important}.gap{font-weight:850!important}
+
+/* Achievement progress with management thresholds */
+.achievement-scale{position:relative;height:9px;margin:8px 0 25px;background:#ece8df;border-radius:7px;overflow:visible}.achievement-fill{height:100%;border-radius:7px}.achievement-fill.negative{background:#ef3340}.achievement-fill.positive{background:#23835c}.threshold{position:absolute;top:-5px;height:19px;border-left:1px dashed #7d8791;opacity:.85}.t80{left:80%}.t90{left:90%}.t100{left:100%}.threshold-label{position:absolute;top:14px;transform:translateX(-50%);font-size:7px;font-weight:800;color:#7d8791}.l80{left:80%}.l90{left:90%}.l100{left:100%}
