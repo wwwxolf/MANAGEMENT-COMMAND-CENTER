@@ -188,3 +188,37 @@ body{background:var(--bg);color:var(--text)}
 .avg-product-grid strong{
   font-size:12px!important;
 }
+
+
+/* MTD inset metrics card */
+.mtd-metrics-box{
+  margin-top:16px!important;
+  padding:10px 12px!important;
+  border:1px solid #ded7c8!important;
+  border-radius:6px!important;
+  background:#fffdf8!important;
+}
+.mtd-metrics-box .meta{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  margin:0!important;
+  padding:5px 0!important;
+  font-size:10px!important;
+  line-height:1.25!important;
+}
+.mtd-metrics-box .meta + .meta{
+  border-top:1px solid #eee8dc!important;
+}
+.mtd-metrics-box .meta span{
+  color:#687583!important;
+  font-weight:650!important;
+}
+.mtd-metrics-box .meta strong{
+  font-size:11px!important;
+  font-weight:850!important;
+  color:#173b63!important;
+}
+.mtd-metrics-box .meta strong.gap.negative{
+  color:#c62828!important;
+}
