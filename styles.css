@@ -530,3 +530,19 @@ body.sidebar-collapsed .nav-group>.board-parent:before{content:"◉";font-size:1
 .collapse-arrow{display:inline-block!important;margin-left:3px!important;font-size:12px!important;line-height:6px!important;transition:transform .18s ease!important}
 .detail-annual-click.expanded .collapse-arrow{transform:rotate(180deg)!important}
 .annual-branch-breakdown{margin-top:-2px!important;margin-bottom:14px!important}
+
+/* Active annual breakdown state */
+.detail-sales-annual .detail-annual-click.expanded{
+  background:#173b63!important;
+  border-color:#173b63!important;
+  box-shadow:inset 4px 0 0 #d9a62e!important;
+}
+.detail-sales-annual .detail-annual-click.expanded span,
+.detail-sales-annual .detail-annual-click.expanded strong,
+.detail-sales-annual .detail-annual-click.expanded small,
+.detail-sales-annual .detail-annual-click.expanded .breakdown-link{
+  color:#fff!important;
+}
+.detail-sales-annual .detail-annual-click.expanded .breakdown-link{
+  opacity:.95!important;
+}
