@@ -134,3 +134,15 @@ body{background:var(--bg);color:var(--text)}
 
 /* Match 3M average headline to MTD revenue */
 .snapshot-head-left{justify-content:flex-start!important;margin-bottom:4px!important}.snapshot-primary{display:flex!important;align-items:flex-end!important;gap:12px!important;margin:5px 0 12px!important}.snapshot-primary-value{font-size:42px!important;line-height:1!important;font-weight:850!important;letter-spacing:-1px!important;color:#173b63!important}.snapshot-primary-label{font-size:7px!important;font-weight:800!important;letter-spacing:.8px!important;color:#7b858f!important;padding-bottom:4px!important}.snapshot-card .snapshot-avg{display:none!important}
+
+
+/* COMMAND CENTER — unify primary revenue numbers */
+.mtd-focus .mtd-main .big,
+.snapshot-card .snapshot-primary-value{
+  font-family:inherit!important;
+  font-size:42px!important;
+  line-height:1!important;
+  font-weight:850!important;
+  letter-spacing:-1px!important;
+  color:#173b63!important;
+}
