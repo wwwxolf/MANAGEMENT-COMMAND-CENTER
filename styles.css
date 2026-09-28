@@ -354,3 +354,40 @@ body{background:var(--bg);color:var(--text)}
 .annual-box-primary .annual-growth{
   font-size:9px!important;
 }
+
+
+/* Annual revenue — executive top row */
+.annual-summary-top{
+  width:100%!important;
+  margin:10px 0 8px!important;
+  padding:0!important;
+  border:0!important;
+}
+.annual-summary-top .annual-title{
+  margin:0 0 6px!important;
+  font-size:8px!important;
+  letter-spacing:1px!important;
+}
+.annual-cards-row{
+  display:grid!important;
+  grid-template-columns:1.25fr 1fr 1fr!important;
+  gap:10px!important;
+}
+.annual-cards-row .annual-box{
+  margin:0!important;
+  min-height:88px!important;
+  padding:12px 14px!important;
+  box-sizing:border-box!important;
+}
+.annual-cards-row .annual-box-primary{
+  min-height:88px!important;
+  padding:12px 14px!important;
+}
+.annual-cards-row .annual-box>strong,
+.annual-cards-row .annual-box-primary>strong{
+  font-size:24px!important;
+  margin:7px 0 5px!important;
+}
+@media(max-width:899px){
+  .annual-cards-row{grid-template-columns:1fr!important}
+}
