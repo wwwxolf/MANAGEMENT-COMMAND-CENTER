@@ -20,3 +20,5 @@ body{background:var(--bg);color:var(--text)}
 .progress{background:#e5dfd3}.progress i{background:#173b63}
 .axis{stroke:#e2dcd0}.lineA{stroke:#173b63}.lineB{stroke:#9aa1a8}.lineC{stroke:#b08a45}
 .months{color:#89919a}.back{color:#8c6a32}
+
+.period-grid{display:grid;grid-template-columns:.75fr 2.25fr;gap:14px}.mtd-focus{border-top:3px solid #b99652;padding:22px}.mtd-focus .big{font-size:34px;color:#17283c}.history-card{padding:22px}.history-head{display:flex;justify-content:space-between;align-items:start}.history-head h3{margin:6px 0 0;font-size:16px;color:#253548}.history-months{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#ded7c8;margin-top:20px;border:1px solid #ded7c8}.history-item{background:#faf8f2;padding:18px}.history-item span,.history-item small{display:block;font-size:9px;letter-spacing:1px;color:#7c8791}.history-item strong{display:block;font-size:22px;margin:7px 0;color:#1d2c3d}.history-item small{color:#9a7435;font-weight:700}@media(max-width:1200px){.period-grid{grid-template-columns:1fr}}
