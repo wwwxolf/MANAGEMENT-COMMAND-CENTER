@@ -89,3 +89,6 @@ body{background:var(--bg);color:var(--text)}
 
 /* Executive concept: left stack MTD + product, right vertical 3-month history */
 .executive-top-grid{grid-template-columns:minmax(520px,1.7fr) minmax(240px,.7fr);align-items:stretch}.executive-left{display:grid;grid-template-rows:auto 1fr;gap:10px}.executive-left .product-performance{max-width:none;margin:0;padding:0;overflow:hidden}.executive-left .product-table{border:0;border-radius:0}.history-vertical{margin:0;padding:22px}.history-vertical .history-head{margin-bottom:14px}.history-vertical .history-months{display:grid;grid-template-columns:1fr;margin:0;background:#ded7c8;border:1px solid #ded7c8;height:calc(100% - 55px)}.history-vertical .history-item{display:flex;flex-direction:column;justify-content:center;min-height:108px}.history-vertical .history-item strong{font-size:27px}@media(max-width:1050px){.executive-top-grid{grid-template-columns:1fr}.history-vertical .history-months{grid-template-columns:repeat(3,1fr);height:auto}}
+
+/* Narrow left executive block so history remains visible beside it */
+.executive-top-grid{grid-template-columns:minmax(460px,1.25fr) minmax(270px,.75fr)!important}.executive-left{min-width:0}.executive-left .mtd-focus,.executive-left .product-performance{width:100%}
