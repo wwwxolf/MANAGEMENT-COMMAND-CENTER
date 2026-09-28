@@ -391,3 +391,11 @@ body{background:var(--bg);color:var(--text)}
 @media(max-width:899px){
   .annual-cards-row{grid-template-columns:1fr!important}
 }
+
+
+/* COMMAND CENTER — slimmer desktop navigation */
+@media(min-width:900px){
+  :root{--sidebar:190px!important}
+  .side{padding-left:14px!important;padding-right:14px!important}
+  .nav-sub{margin-left:22px!important}
+}
