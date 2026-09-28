@@ -329,3 +329,28 @@ body{background:var(--bg);color:var(--text)}
 .annual-growth{font-style:normal!important;font-size:8px!important;font-weight:900!important;white-space:nowrap!important}
 .annual-growth.up{color:#2e7d32!important}
 .annual-growth.down{color:#c62828!important}
+
+
+/* Annual revenue hierarchy — current year first and dominant */
+.annual-box-primary{
+  padding:18px 16px!important;
+  min-height:112px!important;
+  border-width:1.5px!important;
+}
+.annual-box-primary>span{
+  font-size:9px!important;
+  font-weight:850!important;
+}
+.annual-box-primary>strong{
+  display:block!important;
+  margin:8px 0 6px!important;
+  font-size:28px!important;
+  line-height:1!important;
+}
+.annual-box-primary>small{
+  font-size:8px!important;
+  letter-spacing:.7px!important;
+}
+.annual-box-primary .annual-growth{
+  font-size:9px!important;
+}
