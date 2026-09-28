@@ -83,3 +83,6 @@ body{background:var(--bg);color:var(--text)}
 
 /* Compact product MTD summary */
 .product-performance.compact{max-width:720px}.product-performance.compact .product-row{grid-template-columns:1fr 1fr;min-width:0}.product-performance.compact .product-head{margin-bottom:14px}
+
+/* Executive top hierarchy: MTD + product, then history full row */
+.executive-top-grid{display:grid;grid-template-columns:minmax(330px,.78fr) minmax(460px,1.22fr);gap:14px;align-items:stretch}.executive-top-grid .product-performance.compact{max-width:none;margin-top:0}.history-horizontal{margin-top:14px}.history-horizontal .history-months{grid-template-columns:repeat(3,1fr)}@media(max-width:1050px){.executive-top-grid{grid-template-columns:1fr}}
