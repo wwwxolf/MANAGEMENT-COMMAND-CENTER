@@ -450,3 +450,20 @@ body.sidebar-collapsed .nav-group>.board-parent:before{content:"◉";font-size:1
 @media(max-width:899px){
   .sidebar-toggle{right:-11px!important}
 }
+
+
+/* Annual comparison label under growth percentage */
+.annual-compare{
+  margin-left:auto!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-end!important;
+  gap:3px!important;
+}
+.annual-compare small{
+  font-size:6.5px!important;
+  line-height:1!important;
+  letter-spacing:.55px!important;
+  color:#8a7551!important;
+  font-weight:800!important;
+}
