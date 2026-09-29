@@ -822,3 +822,26 @@ body.sidebar-collapsed .nav-group>.board-parent:before{content:"◉";font-size:1
     overflow:hidden!important;
   }
 }
+
+/* ROOT FIX: the <=1200px legacy rule turns .annual-summary itself into 3 columns.
+   On phones that made .annual-cards-row occupy only 1/3 of the available width.
+   Force the wrapper back to one column; then let the child row divide the full width by 3. */
+@media(max-width:899px){
+  .annual-summary.annual-summary-top,
+  .annual-summary.annual-summary-top.detail-sales-annual{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    width:100%!important;
+    padding-left:0!important;
+    border-left:0!important;
+  }
+  .annual-summary.annual-summary-top>.annual-title,
+  .annual-summary.annual-summary-top>.annual-cards-row{
+    grid-column:1/-1!important;
+    width:100%!important;
+    min-width:0!important;
+  }
+  .annual-summary.annual-summary-top>.annual-cards-row{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  }
+}
