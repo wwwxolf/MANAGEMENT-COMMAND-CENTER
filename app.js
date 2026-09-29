@@ -18,11 +18,8 @@ function board(){shell(`<div class="heading"><div><div class="eyebrow">MBG EAST 
 <div class="section card"><h3 class="section-title">SALES TREND · MBG EAST</h3><div class="invalid-text" style="padding:24px 0">INVALID</div><div class="sub">Use Monthly Revenue Journey above. No separate dataset exists for this chart.</div></div>`,"MBG / EAST / SEPTEMBER 2026");setScopeActive("MBG EAST")}
 function toggleAnnualBreakdown(year){
   const panels=document.querySelectorAll(".annual-branch-breakdown");
-  panels.forEach(p=>{if(p.id!=="annual-breakdown-"+year)p.classList.remove("open")});
-  document.querySelectorAll(".detail-annual-click").forEach(card=>{if(card.dataset.year!==String(year))card.classList.remove("expanded")});
-  const el=document.getElementById("annual-breakdown-"+year);
-  const card=document.querySelector('.detail-annual-click[data-year="'+year+'"]');
-  if(el){el.classList.toggle("open");if(card)card.classList.toggle("expanded",el.classList.contains("open"))}
+  panels.forEach(p=>p.classList.toggle("open",p.id==="annual-breakdown-"+year));
+  document.querySelectorAll(".detail-annual-click").forEach(card=>card.classList.toggle("expanded",card.dataset.year===String(year)));
 }
 function branchPerformance(){
   const branches=["JAWA TIMUR","JAWA TENGAH","MANADO","KALIMANTAN","MAKASSAR"];
@@ -32,6 +29,7 @@ function branchPerformance(){
   const overview='<div class="annual-summary annual-summary-top detail-sales-annual"><div class="annual-title">MBG EAST · REVENUE OVERVIEW</div><div class="annual-cards-row">'+card(2026,"69,89 M","OMSET YTD 2026 · JAN–SEP",true)+card(2025,"102,18 M","OMSET FY 2025",false)+card(2024,"87,09 M","OMSET FY 2024",false)+'</div></div>';
   const breakdown=(year,period)=>'<div id="annual-breakdown-'+year+'" class="ytd-branch-breakdown annual-branch-breakdown"><div class="annual-title">'+year+' '+period+' · BRANCH CONTRIBUTION</div><div class="branch-share-grid">'+branches.map(n=>'<div class="branch-share-card"><span>'+n+'</span><strong class="invalid-text">INVALID</strong><small>SHARE: INVALID</small></div>').join("")+'</div><div class="branch-breakdown-note">Branch data belum tersedia di master database.</div></div>';
   shell('<span class="back" onclick="board()">← MBG EAST · EXECUTIVE OVERVIEW</span><div class="heading branch-page-heading"><div><div class="eyebrow">MBG EAST · BRANCH PERFORMANCE</div><h1>Branch Revenue Performance</h1><div class="dashboard-period">SEPTEMBER 2026</div><div class="sub">Revenue performance & target achievement by branch</div></div><span class="tag">DRILL-DOWN VIEW</span></div>'+overview+breakdown(2026,"YTD JAN–SEP")+breakdown(2025,"FULL YEAR")+breakdown(2024,"FULL YEAR")+branches.map(snap).join(""),"MBG / EAST / BRANCH PERFORMANCE");
+  toggleAnnualBreakdown(2026);
   setScopeActive("MBG EAST", "detail-sales");
 }
 
