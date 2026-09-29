@@ -866,3 +866,100 @@ body.sidebar-collapsed .nav-group>.board-parent:before{content:"◉";font-size:1
   background:#fff9e9;
 }
 #branch-detail-slot{margin-top:20px}
+
+
+/* Branch selector + floating detail workspace */
+.branch-select-card{
+  position:relative;
+  padding-bottom:38px!important;
+  transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease,background .18s ease;
+}
+.branch-view-detail{
+  position:absolute;
+  left:18px;
+  bottom:13px;
+  font-style:normal;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.8px;
+  color:#9a742d;
+  white-space:nowrap;
+}
+.branch-select-card:hover,.branch-select-card:focus-visible{
+  transform:translateY(-1px);
+  border-color:#b99652;
+  box-shadow:0 7px 18px rgba(29,57,88,.10);
+  outline:none;
+}
+.branch-select-card.selected{
+  background:#1f4a76!important;
+  border-color:#1f4a76!important;
+  box-shadow:inset 5px 0 #d5aa43,0 7px 18px rgba(29,57,88,.16)!important;
+  color:#fff!important;
+}
+.branch-select-card.selected span,
+.branch-select-card.selected strong,
+.branch-select-card.selected small,
+.branch-select-card.selected .invalid-text{color:#fff!important}
+.branch-select-card.selected .branch-view-detail{color:#f1d48c!important}
+
+#branch-detail-slot{
+  margin-top:28px!important;
+  padding:10px;
+  border-radius:18px;
+  background:#e9eef3;
+  border:1px solid #d2dbe4;
+  box-shadow:0 14px 32px rgba(28,51,76,.10);
+}
+.selected-branch-panel{
+  margin:0!important;
+  border:1px solid #c6d1dc!important;
+  border-radius:14px!important;
+  background:#f8fafc!important;
+  box-shadow:0 4px 12px rgba(28,51,76,.06)!important;
+  overflow:hidden;
+}
+.selected-branch-kicker{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  margin:-1px -1px 20px;
+  padding:10px 18px;
+  background:#17344f;
+  color:#fff;
+  font-size:9px;
+  line-height:1;
+  letter-spacing:1.15px;
+  font-weight:800;
+}
+.selected-branch-kicker strong{
+  color:#e2c276;
+  font-size:9px;
+  letter-spacing:1px;
+}
+
+@media(max-width:899px){
+  .branch-view-detail{
+    left:12px;
+    bottom:11px;
+    font-size:7px;
+    letter-spacing:.45px;
+  }
+  .branch-select-card{padding-bottom:32px!important}
+  #branch-detail-slot{
+    margin-top:18px!important;
+    padding:6px;
+    border-radius:14px;
+  }
+  .selected-branch-kicker{
+    margin:-1px -1px 16px;
+    padding:9px 12px;
+    font-size:7px;
+    letter-spacing:.7px;
+  }
+  .selected-branch-kicker strong{
+    font-size:7px;
+    letter-spacing:.6px;
+  }
+}
