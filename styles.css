@@ -1280,3 +1280,26 @@ body.sidebar-collapsed .nav-group>.board-parent:before{content:"◉";font-size:1
   .executive-pair:not(.branch-exec) .avg-product-grid strong{font-size:7.5px!important}
   .executive-pair:not(.branch-exec) .drill-hint{font-size:5px!important}
 }
+
+
+/* Key Account Intelligence — locked access shell */
+.kai-locked-tag{color:#b84b52!important}
+.kai-lock-screen{max-width:540px;margin:34px auto;padding:34px 42px;border:1px solid #d8d0c1;border-radius:16px;background:linear-gradient(145deg,#fffdf8,#f4f6f7);box-shadow:0 16px 38px rgba(25,48,70,.10);text-align:center}
+.kai-lock-icon{width:54px;height:54px;margin:0 auto 13px;display:grid;place-items:center;border-radius:50%;background:#173b63;color:#fff;font-size:23px;box-shadow:0 6px 16px rgba(23,59,99,.18)}
+.kai-lock-kicker{font-size:8px;font-weight:850;letter-spacing:1.5px;color:#a17b36}
+.kai-lock-screen h2{margin:7px 0 7px;color:#17344f;font-size:23px}
+.kai-lock-screen>p{max-width:390px;margin:0 auto;color:#77818a;font-size:10px;line-height:1.55}
+.kai-pin-display{display:flex;justify-content:center;gap:16px;margin:24px 0 18px}
+.kai-pin-display i{width:13px;height:13px;border:2px solid #aab4bd;border-radius:50%;background:#fff;transition:.15s}
+.kai-pin-display i.filled{border-color:#b08a45;background:#b08a45;box-shadow:0 0 0 3px rgba(176,138,69,.12)}
+.kai-pin-pad{display:grid;grid-template-columns:repeat(3,64px);justify-content:center;gap:8px}
+.kai-pin-pad button{height:43px;border:1px solid #d4d9de;border-radius:8px;background:#fff;color:#17344f;font-size:13px;font-weight:800;cursor:pointer}
+.kai-pin-pad button:hover{border-color:#b08a45;background:#fbf7ed}
+.kai-pin-pad .kai-clear{font-size:6.5px;letter-spacing:.6px;color:#8a9299}
+.kai-pin-pad .kai-enter{font-size:6.5px;letter-spacing:.6px;background:#173b63;color:#fff;border-color:#173b63}
+.kai-pin-status{margin-top:16px;font-size:7px;font-weight:850;letter-spacing:.7px;color:#8a7551}
+.kai-access-note{display:grid;grid-template-columns:1fr 1.4fr;gap:1px;margin:22px 0 0;border:1px solid #ded8cc;border-radius:7px;overflow:hidden;text-align:left;background:#ded8cc}
+.kai-access-note>*{padding:8px 10px;background:#faf8f2}
+.kai-access-note span{font-size:6.5px;font-weight:850;letter-spacing:.6px;color:#8a7551}
+.kai-access-note strong{font-size:7.5px;color:#596875}
+@media(max-width:899px){.kai-lock-screen{margin:18px 0;padding:25px 16px}.kai-lock-screen h2{font-size:19px}.kai-pin-pad{grid-template-columns:repeat(3,58px)}}
