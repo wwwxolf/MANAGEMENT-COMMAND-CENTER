@@ -1282,24 +1282,14 @@ body.sidebar-collapsed .nav-group>.board-parent:before{content:"◉";font-size:1
 }
 
 
-/* Key Account Intelligence — locked access shell */
-.kai-locked-tag{color:#b84b52!important}
-.kai-lock-screen{max-width:540px;margin:34px auto;padding:34px 42px;border:1px solid #d8d0c1;border-radius:16px;background:linear-gradient(145deg,#fffdf8,#f4f6f7);box-shadow:0 16px 38px rgba(25,48,70,.10);text-align:center}
-.kai-lock-icon{width:54px;height:54px;margin:0 auto 13px;display:grid;place-items:center;border-radius:50%;background:#173b63;color:#fff;font-size:23px;box-shadow:0 6px 16px rgba(23,59,99,.18)}
-.kai-lock-kicker{font-size:8px;font-weight:850;letter-spacing:1.5px;color:#a17b36}
-.kai-lock-screen h2{margin:7px 0 7px;color:#17344f;font-size:23px}
-.kai-lock-screen>p{max-width:390px;margin:0 auto;color:#77818a;font-size:10px;line-height:1.55}
-.kai-pin-display{display:flex;justify-content:center;gap:16px;margin:24px 0 18px}
-.kai-pin-display i{width:13px;height:13px;border:2px solid #aab4bd;border-radius:50%;background:#fff;transition:.15s}
-.kai-pin-display i.filled{border-color:#b08a45;background:#b08a45;box-shadow:0 0 0 3px rgba(176,138,69,.12)}
-.kai-pin-pad{display:grid;grid-template-columns:repeat(3,64px);justify-content:center;gap:8px}
-.kai-pin-pad button{height:43px;border:1px solid #d4d9de;border-radius:8px;background:#fff;color:#17344f;font-size:13px;font-weight:800;cursor:pointer}
-.kai-pin-pad button:hover{border-color:#b08a45;background:#fbf7ed}
-.kai-pin-pad .kai-clear{font-size:6.5px;letter-spacing:.6px;color:#8a9299}
-.kai-pin-pad .kai-enter{font-size:6.5px;letter-spacing:.6px;background:#173b63;color:#fff;border-color:#173b63}
-.kai-pin-status{margin-top:16px;font-size:7px;font-weight:850;letter-spacing:.7px;color:#8a7551}
-.kai-access-note{display:grid;grid-template-columns:1fr 1.4fr;gap:1px;margin:22px 0 0;border:1px solid #ded8cc;border-radius:7px;overflow:hidden;text-align:left;background:#ded8cc}
-.kai-access-note>*{padding:8px 10px;background:#faf8f2}
-.kai-access-note span{font-size:6.5px;font-weight:850;letter-spacing:.6px;color:#8a7551}
-.kai-access-note strong{font-size:7.5px;color:#596875}
-@media(max-width:899px){.kai-lock-screen{margin:18px 0;padding:25px 16px}.kai-lock-screen h2{font-size:19px}.kai-pin-pad{grid-template-columns:repeat(3,58px)}}
+
+/* Key Account Intelligence — customer concentration workspace */
+.kai-pending-tag{color:#9a7735!important;border-color:#d8c28f!important;background:#fff9e8!important}
+.kai-exec{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:14px;padding:18px 20px;border:1px solid #d9d4c8;border-left:4px solid #b58b3d;border-radius:10px;background:linear-gradient(120deg,#fffdf7,#f4f6f7)}
+.kai-exec>div:first-child{display:grid;gap:4px}.kai-exec span,.kai-section-head span,.kai-work-head span{font-size:7px;font-weight:900;letter-spacing:1.1px;color:#9a7735}.kai-exec strong{font-size:18px;color:#17344f}.kai-exec small{font-size:8px;color:#78838c}.kai-exec-status{text-align:right;display:grid;gap:2px}.kai-exec-status b{font-size:11px;color:#173b63}.kai-exec-status small{font-size:6px;letter-spacing:.8px}
+.kai-concentration{padding:20px;border:1px solid #ddd8cd;border-radius:12px;background:#fff}.kai-section-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px}.kai-section-head h2{margin:4px 0 3px;font-size:20px;color:#17344f}.kai-section-head p{margin:0;font-size:8px;color:#7c858d}.kai-section-head>b{font-size:6px;letter-spacing:.7px;color:#7f6b47;border:1px solid #ded4bf;border-radius:5px;padding:6px 8px;background:#faf7ef}
+.kai-branch-tabs,.kai-rank-tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}.kai-branch-tabs{margin:17px 0 12px;padding-bottom:2px}.kai-branch-tabs::-webkit-scrollbar,.kai-rank-tabs::-webkit-scrollbar{display:none}.kai-branch-btn,.kai-rank-btn{flex:0 0 auto;border:1px solid #d8dde1;background:#f8f9f9;color:#5e6d78;border-radius:6px;padding:9px 13px;font-size:7px;font-weight:900;letter-spacing:.45px;cursor:pointer}.kai-branch-btn.active{background:#173b63;border-color:#173b63;color:#fff}.kai-rank-btn.active{background:#b58b3d;border-color:#b58b3d;color:#fff}
+#kaiCustomerWorkspace{border-top:1px solid #e6e1d8;padding-top:14px}.kai-work-head{display:flex;justify-content:space-between;align-items:end}.kai-work-head>div{display:grid;gap:2px}.kai-work-head strong{font-size:14px;color:#17344f}.kai-work-head small{font-size:6px;color:#8b949b;letter-spacing:.55px}.kai-rank-tabs{margin:11px 0}
+.kai-data-note{display:flex;align-items:center;gap:10px;padding:8px 10px;margin-bottom:7px;border-radius:6px;background:#fff9e9;border:1px solid #eadbb8}.kai-data-note b{font-size:6px;color:#9a7735;letter-spacing:.55px}.kai-data-note span{font-size:6.5px;color:#7e7564}
+.kai-customer-list{display:grid;gap:6px}.kai-customer-row{display:grid;grid-template-columns:42px minmax(130px,1.4fr) repeat(4,minmax(90px,1fr));align-items:center;border:1px solid #e0e3e5;border-radius:8px;background:#fff;overflow:hidden}.kai-customer-row>div{min-width:0;padding:10px 11px;border-right:1px solid #eceeef}.kai-customer-row>div:last-child{border-right:0}.kai-rank{font-size:11px!important;font-weight:900;color:#b58b3d;text-align:center}.kai-customer-main,.kai-metric,.kai-compare{display:grid;gap:2px}.kai-customer-main span,.kai-metric span,.kai-compare span{font-size:5.5px;font-weight:850;letter-spacing:.55px;color:#8a949b}.kai-customer-main strong{font-size:10px;color:#17344f}.kai-customer-main small,.kai-metric small,.kai-compare small{font-size:5.5px;color:#9aa2a8}.kai-metric strong,.kai-compare strong{font-size:10px;color:#314c62}.kai-mtd{background:#fbf8ef}
+@media(max-width:899px){.kai-heading .tag{font-size:5px}.kai-exec{padding:12px 13px}.kai-exec strong{font-size:13px}.kai-exec-status{min-width:68px}.kai-concentration{padding:12px}.kai-section-head h2{font-size:15px}.kai-section-head p{font-size:6.5px}.kai-branch-btn,.kai-rank-btn{padding:8px 10px}.kai-work-head small{display:none}.kai-data-note{align-items:flex-start;flex-direction:column;gap:2px}.kai-customer-row{grid-template-columns:32px minmax(92px,1.2fr) repeat(4,minmax(72px,1fr));min-width:470px}.kai-customer-list{overflow-x:auto;padding-bottom:4px}.kai-customer-row>div{padding:8px 7px}.kai-customer-main strong,.kai-metric strong,.kai-compare strong{font-size:8px}}

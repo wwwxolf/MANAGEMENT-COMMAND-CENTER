@@ -41,21 +41,34 @@ function selectBranch(n){
 }
 
 function keyAccountIntelligence(){
-  shell('<div class="heading"><div><div class="eyebrow">MBG EAST · RESTRICTED CUSTOMER DATA</div><h1>Key Account Intelligence</h1><div class="dashboard-period">SEPTEMBER 2026</div><div class="sub">Pareto · customer concentration · key account performance</div></div><span class="tag kai-locked-tag">🔒 RESTRICTED</span></div><section class="kai-lock-screen"><div class="kai-lock-icon">🔒</div><div class="kai-lock-kicker">SECURE ACCESS</div><h2>Customer Intelligence Locked</h2><p>Enter your 4-digit access PIN. Your PIN determines which branch customer data you are authorized to view.</p><div class="kai-pin-display"><i></i><i></i><i></i><i></i></div><div class="kai-pin-pad"><button onclick="kaiPin(1)">1</button><button onclick="kaiPin(2)">2</button><button onclick="kaiPin(3)">3</button><button onclick="kaiPin(4)">4</button><button onclick="kaiPin(5)">5</button><button onclick="kaiPin(6)">6</button><button onclick="kaiPin(7)">7</button><button onclick="kaiPin(8)">8</button><button onclick="kaiPin(9)">9</button><button class="kai-clear" onclick="kaiClear()">CLEAR</button><button onclick="kaiPin(0)">0</button><button class="kai-enter" onclick="kaiEnter()">ENTER</button></div><div id="kaiPinStatus" class="kai-pin-status">ACCESS SCOPE WILL BE ASSIGNED BY PIN</div><div class="kai-access-note"><span>BRANCH PIN</span><strong>Authorized branch only</strong><span>MASTER PIN</span><strong>All MBG East branches</strong></div></section>',"MBG / EAST / KEY ACCOUNT INTELLIGENCE");
+  const branchTabs=[
+    ["JAWA TIMUR",4],["JAWA TENGAH",3],["JIKN",2],["MANADO",1],["MAKASSAR",2]
+  ];
+  const branchButtons=branchTabs.map((b,i)=>'<button class="kai-branch-btn '+(i===0?'active':'')+'" data-branch="'+b[0]+'" onclick="kaiSelectBranch(\''+b[0]+'\','+b[1]+',this)">'+b[0]+'</button>').join("");
+  shell('<div class="heading kai-heading"><div><div class="eyebrow">MBG EAST · CUSTOMER INTELLIGENCE</div><h1>Key Account Intelligence</h1><div class="dashboard-period">SEPTEMBER 2026</div><div class="sub">Customer concentration · key account ranking · revenue movement</div></div><span class="tag kai-pending-tag">DATA CONNECTION PENDING</span></div><section class="kai-exec"><div><span>EXECUTIVE HEADER</span><strong>Customer Revenue Intelligence</strong><small>MTD September 2026 · YTD Jan–Sep 2026 · FY2025 benchmark</small></div><div class="kai-exec-status"><b>MBG EAST</b><small>MANAGEMENT VIEW</small></div></section><section class="kai-concentration"><div class="kai-section-head"><div><span>01 · CUSTOMER CONCENTRATION</span><h2>Top Customer Ranking</h2><p>Review the highest-contributing customers by branch and revenue rank.</p></div><b>5 ACCOUNTS / TAB</b></div><div class="kai-branch-tabs">'+branchButtons+'</div><div id="kaiCustomerWorkspace"></div></section>',"MBG / EAST / KEY ACCOUNT INTELLIGENCE");
   setScopeActive("MBG EAST","key-account");
-  window.kaiDigits=[];
-  kaiRenderPin();
+  kaiSelectBranch("JAWA TIMUR",4,document.querySelector(".kai-branch-btn"));
 }
-function kaiRenderPin(){
-  const dots=document.querySelectorAll(".kai-pin-display i");
-  dots.forEach((d,i)=>d.classList.toggle("filled",i<(window.kaiDigits||[]).length));
+function kaiSelectBranch(branch,tabCount,el){
+  document.querySelectorAll(".kai-branch-btn").forEach(x=>x.classList.remove("active"));
+  if(el)el.classList.add("active");
+  const ranges=["TOP 5","6–10","11–15","16–20"];
+  const tabs=ranges.slice(0,tabCount).map((r,i)=>'<button class="kai-rank-btn '+(i===0?'active':'')+'" onclick="kaiRenderRank(\''+branch+'\','+i+',this)">'+r+'</button>').join("");
+  const w=document.querySelector("#kaiCustomerWorkspace");
+  if(!w)return;
+  w.innerHTML='<div class="kai-work-head"><div><span>SELECTED BRANCH</span><strong>'+branch+'</strong></div><small>RANKED BY REVENUE YTD 2026</small></div><div class="kai-rank-tabs">'+tabs+'</div><div id="kaiRankList"></div>';
+  kaiRenderRank(branch,0,document.querySelector(".kai-rank-btn"));
 }
-function kaiPin(n){if(!window.kaiDigits)window.kaiDigits=[];if(window.kaiDigits.length<4)window.kaiDigits.push(n);kaiRenderPin()}
-function kaiClear(){window.kaiDigits=[];kaiRenderPin();const s=document.querySelector("#kaiPinStatus");if(s)s.textContent="ACCESS SCOPE WILL BE ASSIGNED BY PIN"}
-function kaiEnter(){
-  const s=document.querySelector("#kaiPinStatus");
-  if(s)s.textContent=(window.kaiDigits||[]).length===4?"PIN ACCESS FRAMEWORK READY · AUTHORIZATION NOT YET CONFIGURED":"ENTER 4 DIGITS";
-  window.kaiDigits=[];kaiRenderPin();
+function kaiRenderRank(branch,group,el){
+  document.querySelectorAll(".kai-rank-btn").forEach(x=>x.classList.remove("active"));
+  if(el)el.classList.add("active");
+  const start=group*5+1;
+  const rows=Array.from({length:5},(_,i)=>{
+    const rank=start+i;
+    return '<article class="kai-customer-row"><div class="kai-rank">#'+String(rank).padStart(2,"0")+'</div><div class="kai-customer-main"><span>CUSTOMER</span><strong>CUSTOMER '+String.fromCharCode(64+rank)+'</strong><small>'+branch+'</small></div><div class="kai-metric kai-mtd"><span>MTD SEP 2026</span><strong>—</strong><small>DATA PENDING</small></div><div class="kai-metric"><span>YTD 2026</span><strong>—</strong><small>JAN–SEP</small></div><div class="kai-compare"><span>VS YTD 2025</span><strong>—</strong><small>YOY · —%</small></div><div class="kai-compare"><span>VS FY 2025</span><strong>—</strong><small>PROGRESS · —%</small></div></article>';
+  }).join("");
+  const list=document.querySelector("#kaiRankList");
+  if(list)list.innerHTML='<div class="kai-data-note"><b>DATA CONNECTION PENDING</b><span>Layout ready · actual customer names and revenue will be connected from master data.</span></div><div class="kai-customer-list">'+rows+'</div>';
 }
 
 function productPortfolio(){
