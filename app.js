@@ -40,35 +40,46 @@ function selectBranch(n){
   document.querySelectorAll(".branch-select-card").forEach(el=>el.classList.toggle("selected",el.dataset.branch===n));
 }
 
-function keyAccountIntelligence(){
-  const branchTabs=[
-    ["JAWA TIMUR",4],["JAWA TENGAH",3],["JIKN",2],["MANADO",1],["MAKASSAR",2]
-  ];
-  const branchButtons=branchTabs.map((b,i)=>'<button class="kai-branch-btn '+(i===0?'active':'')+'" data-branch="'+b[0]+'" onclick="kaiSelectBranch(\''+b[0]+'\','+b[1]+',this)">'+b[0]+'</button>').join("");
-  shell('<div class="heading kai-heading"><div><div class="eyebrow">MBG EAST · CUSTOMER INTELLIGENCE</div><h1>Key Account Intelligence</h1><div class="dashboard-period">SEPTEMBER 2026</div><div class="sub">Customer concentration · key account ranking · revenue movement</div></div><span class="tag kai-pending-tag">DATA CONNECTION PENDING</span></div><section class="kai-exec"><div><span>EXECUTIVE HEADER</span><strong>Customer Revenue Intelligence</strong><small>MTD September 2026 · YTD Jan–Sep 2026 · FY2025 benchmark</small></div><div class="kai-exec-status"><b>MBG EAST</b><small>MANAGEMENT VIEW</small></div></section><section class="kai-concentration"><div class="kai-section-head"><div><span>01 · CUSTOMER CONCENTRATION</span><h2>Top Customer Ranking</h2><p>Review the highest-contributing customers by branch and revenue rank.</p></div><b>5 ACCOUNTS / TAB</b></div><div class="kai-branch-tabs">'+branchButtons+'</div><div id="kaiCustomerWorkspace"></div></section>',"MBG / EAST / KEY ACCOUNT INTELLIGENCE");
-  setScopeActive("MBG EAST","key-account");
-  kaiSelectBranch("JAWA TIMUR",4,document.querySelector(".kai-branch-btn"));
+const KAI_DEMO={
+ "JAWA TIMUR":{n:20,total25:28.4,top25:20.7,top5:39,top10:58,topN:73,seed:1},
+ "JAWA TENGAH":{n:15,total25:19.6,top25:12.9,top5:35,top10:55,topN:66,seed:2},
+ "JIKN":{n:10,total25:17.8,top25:10.5,top5:41,top10:59,topN:59,seed:3},
+ "MANADO":{n:5,total25:8.4,top25:4.2,top5:50,top10:null,topN:50,seed:4},
+ "MAKASSAR":{n:10,total25:14.7,top25:9.4,top5:43,top10:64,topN:64,seed:5}
+};
+function kaiDemoRows(branch){
+ const cfg=KAI_DEMO[branch];
+ return Array.from({length:cfg.n},(_,i)=>{
+   const rank=i+1, fy=+(2.55/(1+i*.115)*(1-cfg.seed*.018)).toFixed(2);
+   const y25=+(fy*(.69+.012*((i+cfg.seed)%5))).toFixed(2);
+   const swing=[.13,-.08,.04,-.19,.01,.09,-.12,.16,-.04,.06][(i+cfg.seed)%10];
+   const y26=+(y25*(1+swing)).toFixed(2), mtd=+(y26/(8.7+(i%3)*.25)).toFixed(2);
+   const delta=+(y26-y25).toFixed(2), yoy=+((delta/y25)*100).toFixed(1), progress=+((y26/fy)*100).toFixed(1);
+   const status=yoy>=8?"GROWING":yoy<=-10?"DECLINING":yoy<0?"WATCH":"STABLE";
+   return {rank,name:"CUSTOMER "+String.fromCharCode(64+i),fy,y25,y26,mtd,delta,yoy,progress,status};
+ });
 }
-function kaiSelectBranch(branch,tabCount,el){
-  document.querySelectorAll(".kai-branch-btn").forEach(x=>x.classList.remove("active"));
-  if(el)el.classList.add("active");
-  const ranges=["TOP 5","6–10","11–15","16–20"];
-  const tabs=ranges.slice(0,tabCount).map((r,i)=>'<button class="kai-rank-btn '+(i===0?'active':'')+'" onclick="kaiRenderRank(\''+branch+'\','+i+',this)">'+r+'</button>').join("");
-  const w=document.querySelector("#kaiCustomerWorkspace");
-  if(!w)return;
-  w.innerHTML='<div class="kai-work-head"><div><span>SELECTED BRANCH</span><strong>'+branch+'</strong></div><small>RANKED BY REVENUE YTD 2026</small></div><div class="kai-rank-tabs">'+tabs+'</div><div id="kaiRankList"></div>';
-  kaiRenderRank(branch,0,document.querySelector(".kai-rank-btn"));
+function kaiMoney(v){return "Rp "+(v<1?(v*1000).toFixed(0)+" Jt":v.toFixed(2)+" M")}
+function keyAccountIntelligence(){
+ const branches=Object.keys(KAI_DEMO);
+ const buttons=branches.map((b,i)=>'<button class="kai-branch-btn '+(i===0?'active':'')+'" onclick="kaiSelectBranch(\''+b+'\',this)">'+b+'</button>').join("");
+ shell('<div class="heading kai-heading"><div><div class="eyebrow">MBG EAST · CUSTOMER INTELLIGENCE</div><h1>Key Account Intelligence</h1><div class="dashboard-period">SEPTEMBER 2026</div><div class="sub">Customer concentration · movement · revenue risk</div></div><span class="tag kai-demo-tag">DEMO DATA</span></div><section class="kai-exec"><div><span>EXECUTIVE HEADER</span><strong>Customer Revenue Intelligence</strong><small>MTD Sep 2026 · YTD Jan–Sep · ranking locked to FY2025</small></div><div class="kai-exec-status"><b>MBG EAST</b><small>MANAGEMENT VIEW</small></div></section><section class="kai-concentration"><div class="kai-section-head"><div><span>01 · CUSTOMER CONCENTRATION</span><h2>FY2025 Top Customer Base</h2><p>Track how last year's largest accounts are performing in 2026.</p></div><b>DEMO · 5 ACCOUNTS / TAB</b></div><div class="kai-branch-tabs">'+buttons+'</div><div id="kaiCustomerWorkspace"></div></section>',"MBG / EAST / KEY ACCOUNT INTELLIGENCE");
+ setScopeActive("MBG EAST","key-account"); kaiSelectBranch("JAWA TIMUR",document.querySelector(".kai-branch-btn"));
+}
+function kaiSelectBranch(branch,el){
+ document.querySelectorAll(".kai-branch-btn").forEach(x=>x.classList.remove("active")); if(el)el.classList.add("active");
+ const c=KAI_DEMO[branch], rows=kaiDemoRows(branch), groups=Math.ceil(c.n/5), ranges=["TOP 5","6–10","11–15","16–20"];
+ const tabs=ranges.slice(0,groups).map((r,i)=>'<button class="kai-rank-btn '+(i===0?'active':'')+'" onclick="kaiRenderRank(\''+branch+'\','+i+',this)">'+r+'</button>').join("");
+ const net=rows.reduce((s,r)=>s+r.delta,0), declines=rows.filter(r=>r.delta<0).reduce((s,r)=>s-r.delta,0);
+ const w=document.querySelector("#kaiCustomerWorkspace"); if(!w)return;
+ w.innerHTML='<div class="kai-summary"><div class="kai-summary-copy"><span>SELECTED BRANCH</span><h3>'+branch+'</h3><p>Top '+c.n+' customers selected by highest FY2025 revenue and kept as the fixed comparison base for 2026.</p><div class="kai-kpis"><div><span>TOP 5 SHARE</span><strong>'+c.top5+'%</strong></div>'+(c.top10?'<div><span>TOP 10 SHARE</span><strong>'+c.top10+'%</strong></div>':'')+'<div><span>TOP '+c.n+' SHARE</span><strong>'+c.topN+'%</strong></div><div><span>2026 NET MOVEMENT</span><strong class="'+(net<0?'neg':'pos')+'">'+(net<0?"−":"+")+kaiMoney(Math.abs(net))+'</strong></div><div><span>REVENUE AT RISK</span><strong class="neg">'+kaiMoney(declines)+'</strong></div></div></div><div class="kai-donut-wrap"><div class="kai-donut" style="--share:'+c.topN+'"><div><strong>'+c.topN+'%</strong><span>TOP '+c.n+'</span></div></div><div class="kai-donut-legend"><span><i></i>Top '+c.n+' · '+c.topN+'%</span><span><i></i>Others · '+(100-c.topN)+'%</span></div><small>'+kaiMoney(c.top25)+' of '+kaiMoney(c.total25)+' FY2025</small></div></div><div class="kai-rank-head"><div><span>FY2025 RANKING</span><strong>'+branch+' · TOP '+c.n+'</strong></div><small>RANK LOCKED TO FY2025</small></div><div class="kai-rank-tabs">'+tabs+'</div><div id="kaiRankList"></div>';
+ kaiRenderRank(branch,0,document.querySelector(".kai-rank-btn"));
 }
 function kaiRenderRank(branch,group,el){
-  document.querySelectorAll(".kai-rank-btn").forEach(x=>x.classList.remove("active"));
-  if(el)el.classList.add("active");
-  const start=group*5+1;
-  const rows=Array.from({length:5},(_,i)=>{
-    const rank=start+i;
-    return '<article class="kai-customer-row"><div class="kai-rank">#'+String(rank).padStart(2,"0")+'</div><div class="kai-customer-main"><span>CUSTOMER</span><strong>CUSTOMER '+String.fromCharCode(64+rank)+'</strong><small>'+branch+'</small></div><div class="kai-metric kai-mtd"><span>MTD SEP 2026</span><strong>—</strong><small>DATA PENDING</small></div><div class="kai-metric"><span>YTD 2026</span><strong>—</strong><small>JAN–SEP</small></div><div class="kai-compare"><span>VS YTD 2025</span><strong>—</strong><small>YOY · —%</small></div><div class="kai-compare"><span>VS FY 2025</span><strong>—</strong><small>PROGRESS · —%</small></div></article>';
-  }).join("");
-  const list=document.querySelector("#kaiRankList");
-  if(list)list.innerHTML='<div class="kai-data-note"><b>DATA CONNECTION PENDING</b><span>Layout ready · actual customer names and revenue will be connected from master data.</span></div><div class="kai-customer-list">'+rows+'</div>';
+ document.querySelectorAll(".kai-rank-btn").forEach(x=>x.classList.remove("active")); if(el)el.classList.add("active");
+ const rows=kaiDemoRows(branch).slice(group*5,group*5+5), net=rows.reduce((s,r)=>s+r.delta,0);
+ const html=rows.map(r=>'<article class="kai-customer-card"><div class="kai-rank">#'+String(r.rank).padStart(2,"0")+'</div><div class="kai-customer-name"><span>FY2025 RANK #'+String(r.rank).padStart(2,"0")+'</span><strong>'+r.name+'</strong><small>'+branch+'</small></div><div class="kai-cell kai-mtd"><span>MTD SEP 26</span><strong>'+kaiMoney(r.mtd)+'</strong></div><div class="kai-cell"><span>FY2025</span><strong>'+kaiMoney(r.fy)+'</strong></div><div class="kai-cell"><span>YTD SEP 25</span><strong>'+kaiMoney(r.y25)+'</strong></div><div class="kai-cell"><span>YTD SEP 26</span><strong>'+kaiMoney(r.y26)+'</strong></div><div class="kai-cell kai-move"><span>YOY VALUE</span><strong class="'+(r.delta<0?'neg':'pos')+'">'+(r.delta<0?"−":"+")+kaiMoney(Math.abs(r.delta))+'</strong><small class="'+(r.delta<0?'neg':'pos')+'">'+(r.yoy<0?"▼ ":"▲ ")+Math.abs(r.yoy)+'%</small></div><div class="kai-cell"><span>VS FY2025</span><strong>'+r.progress+'%</strong><small>PROGRESS</small></div><div class="kai-status '+r.status.toLowerCase()+'">'+r.status+'</div></article>').join("");
+ const list=document.querySelector("#kaiRankList"); if(list)list.innerHTML='<div class="kai-demo-note"><b>DEMO DATA</b><span>Illustrative values only · replace with master customer data later.</span></div><div class="kai-customer-list">'+html+'</div><div class="kai-tab-impact"><span>NET MOVEMENT · THIS TAB</span><strong class="'+(net<0?'neg':'pos')+'">'+(net<0?"−":"+")+kaiMoney(Math.abs(net))+'</strong></div>';
 }
 
 function productPortfolio(){
