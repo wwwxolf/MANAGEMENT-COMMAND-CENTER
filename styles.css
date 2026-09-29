@@ -389,54 +389,60 @@ body{background:var(--bg);color:var(--text)}
   margin:7px 0 5px!important;
 }
 @media(max-width:899px){
-  /* Mobile annual revenue: three compact cards, with typography constrained to each card */
+  /* Mobile executive annual revenue: match Detail Sales card treatment, stacked vertically */
   .annual-summary-top .annual-cards-row{
-    grid-template-columns:repeat(3,minmax(0,1fr))!important;
-    gap:6px!important;
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:10px!important;
+    width:100%!important;
   }
   .annual-summary-top .annual-cards-row .annual-box,
   .annual-summary-top .annual-cards-row .annual-box-primary{
-    width:auto!important;
+    width:100%!important;
     min-width:0!important;
-    min-height:108px!important;
-    padding:8px 7px!important;
-    overflow:hidden!important;
+    min-height:138px!important;
+    padding:14px 16px!important;
+    box-sizing:border-box!important;
+    overflow:visible!important;
   }
   .annual-summary-top .annual-cards-row .annual-box>span,
   .annual-summary-top .annual-cards-row .annual-box-primary>span{
-    display:block!important;
-    font-size:6.5px!important;
-    line-height:1.25!important;
-    letter-spacing:.25px!important;
+    display:flex!important;
+    align-items:flex-start!important;
+    justify-content:space-between!important;
+    gap:10px!important;
+    font-size:8px!important;
+    line-height:1.3!important;
+    letter-spacing:.7px!important;
     white-space:normal!important;
   }
   .annual-summary-top .annual-cards-row .annual-box>strong,
   .annual-summary-top .annual-cards-row .annual-box-primary>strong{
     display:block!important;
     max-width:100%!important;
-    font-size:clamp(14px,3.7vw,18px)!important;
-    line-height:1.05!important;
-    letter-spacing:-.35px!important;
+    font-size:24px!important;
+    line-height:1.08!important;
+    letter-spacing:0!important;
     white-space:nowrap!important;
-    overflow:hidden!important;
-    margin:7px 0 5px!important;
+    overflow:visible!important;
+    margin:10px 0 7px!important;
   }
   .annual-summary-top .annual-cards-row .annual-box>small,
   .annual-summary-top .annual-cards-row .annual-box-primary>small{
-    font-size:6px!important;
-    line-height:1.25!important;
-    letter-spacing:.2px!important;
+    display:block!important;
+    font-size:8px!important;
+    line-height:1.3!important;
+    letter-spacing:.7px!important;
     white-space:normal!important;
   }
   .annual-summary-top .annual-growth{
-    display:block!important;
-    margin-top:2px!important;
-    font-size:6.5px!important;
+    display:inline-block!important;
+    margin:0!important;
+    font-size:8px!important;
     white-space:nowrap!important;
   }
   .annual-summary-top .annual-compare,
   .annual-summary-top .annual-compare-dual{
-    display:block!important;
     min-width:0!important;
   }
 }
