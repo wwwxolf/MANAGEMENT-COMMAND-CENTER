@@ -1180,3 +1180,40 @@ body.sidebar-collapsed .nav-group>.board-parent:before{content:"◉";font-size:1
  .history-lines .line-2026{stroke-width:2}
  .avg-label{font-size:5.5px}
 }
+
+/* =========================================================
+   GLOBAL YEAR COLOR STANDARD
+   CURRENT 2026 = GOLD | 2025 = NAVY | 2024 = GREY
+   Apply this semantic mapping to every year-based visual.
+   ========================================================= */
+:root{
+  --year-current:#d9a62e;
+  --year-prev:#173b63;
+  --year-prev2:#8f9ba6;
+  --year-current-soft:rgba(217,166,46,.10);
+}
+/* Generic year markers, bars, dots and journey lines */
+.y26,.bar26,.jl26{background:var(--year-current)!important}
+.y25,.bar25,.jl25{background:var(--year-prev)!important}
+.y24,.bar24,.jl24{background:var(--year-prev2)!important}
+.journey26{stroke:var(--year-current)!important}
+.journey25{stroke:var(--year-prev)!important}
+.journey24{stroke:var(--year-prev2)!important}
+.dot26,.current-dot{fill:var(--year-current)!important}
+.dot25{fill:var(--year-prev)!important}
+.dot24{fill:var(--year-prev2)!important}
+/* Annual cards */
+.annual-box.current,.annual-box[data-year="2026"]{border-color:var(--year-current)!important;box-shadow:inset 4px 0 var(--year-current)!important;background:#fff9e9!important}
+.annual-box[data-year="2025"]{border-color:rgba(23,59,99,.35)!important;box-shadow:inset 3px 0 var(--year-prev)!important}
+.annual-box[data-year="2024"]{border-color:rgba(143,155,166,.45)!important;box-shadow:inset 3px 0 var(--year-prev2)!important}
+/* Product-history legend + lines */
+.product-history-legend .hist-2026{background:var(--year-current)!important}
+.product-history-legend .hist-2025{background:var(--year-prev)!important}
+.product-history-legend .hist-2024{background:var(--year-prev2)!important}
+.history-lines .line-2026{stroke:var(--year-current)!important;stroke-width:2.6}
+.history-lines .line-2025{stroke:var(--year-prev)!important;stroke-width:2}
+.history-lines .line-2024{stroke:var(--year-prev2)!important;stroke-width:1.7}
+.history-2026-bars i{background:var(--year-current-soft)!important}
+/* Average belongs to current year, so it uses the same gold family */
+.product-history-legend .avg i,.history-lines .line-average{border-color:var(--year-current)!important;stroke:var(--year-current)!important}
+.avg-label{color:#8a6500!important;border-color:#dec47d!important;background:#fff8e6!important}
