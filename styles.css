@@ -1295,3 +1295,31 @@ body.sidebar-collapsed .nav-group>.board-parent:before{content:"◉";font-size:1
 .kai-rank-head{display:flex;justify-content:space-between;align-items:end;margin-top:16px}.kai-rank-head>div{display:grid;gap:2px}.kai-rank-head strong{font-size:12px;color:#17344f}.kai-rank-head small{font-size:5.5px;color:#8b949b}.kai-rank-tabs{margin:9px 0}.kai-demo-note{display:flex;gap:9px;padding:7px 9px;margin-bottom:6px;background:#fff9e9;border:1px solid #eadbb8;border-radius:6px}.kai-demo-note b{font-size:5.5px;color:#9a7735}.kai-demo-note span{font-size:6px;color:#7e7564}
 .kai-customer-list{display:grid;gap:6px}.kai-customer-card{display:grid;grid-template-columns:38px minmax(115px,1.25fr) repeat(6,minmax(75px,.8fr)) 72px;align-items:stretch;border:1px solid #e0e3e5;border-radius:8px;background:#fff;overflow:hidden}.kai-customer-card>div{min-width:0;padding:9px 8px;border-right:1px solid #eceeef;display:grid;align-content:center}.kai-customer-card>div:last-child{border-right:0}.kai-rank{font-size:10px!important;font-weight:900;color:#b58b3d;text-align:center}.kai-customer-name span,.kai-cell span{font-size:5px;font-weight:850;letter-spacing:.4px;color:#8a949b}.kai-customer-name strong,.kai-cell strong{font-size:8px;color:#17344f}.kai-customer-name small,.kai-cell small{font-size:5px;color:#9aa2a8}.kai-mtd{background:#fbf8ef}.kai-status{font-size:5.5px!important;font-weight:900;letter-spacing:.35px;text-align:center}.kai-status.growing{color:#35745a;background:#f0f7f3}.kai-status.stable{color:#416783;background:#f1f6f9}.kai-status.watch{color:#9a7735;background:#fff9e9}.kai-status.declining{color:#b84444;background:#fff2f2}.kai-tab-impact{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-top:7px;padding:8px 10px;border-top:1px solid #e4e0d8}.kai-tab-impact span{font-size:5.5px;font-weight:850;color:#879198;letter-spacing:.5px}.kai-tab-impact strong{font-size:10px}
 @media(max-width:899px){.kai-heading .tag{font-size:5px}.kai-exec{padding:12px 13px}.kai-exec strong{font-size:13px}.kai-exec-status{min-width:68px}.kai-concentration{padding:12px}.kai-section-head h2{font-size:15px}.kai-section-head p{font-size:6.5px}.kai-branch-btn,.kai-rank-btn{padding:8px 10px}.kai-summary{grid-template-columns:minmax(0,1fr) 125px;padding:11px;gap:9px}.kai-summary-copy h3{font-size:14px}.kai-summary-copy p{font-size:5.5px}.kai-kpis{gap:4px;margin-top:8px}.kai-kpis>div{min-width:68px;padding:5px 6px}.kai-kpis strong{font-size:8px}.kai-donut-wrap{padding-left:8px}.kai-donut{width:86px;height:86px}.kai-donut:before{width:57px;height:57px}.kai-donut strong{font-size:13px}.kai-donut-legend{display:grid;gap:2px}.kai-customer-list{overflow-x:auto;padding-bottom:4px}.kai-customer-card{min-width:700px;grid-template-columns:34px 105px repeat(6,72px) 66px}.kai-customer-card>div{padding:8px 6px}.kai-demo-note{align-items:flex-start}.kai-rank-head small{display:none}}
+
+
+/* Executive MTD storytelling demo — Target Chase + Pace Check */
+.mtd-story-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:13px}
+.story-block{border:1px solid #ded8ca;border-radius:9px;padding:11px 12px;background:#fffdf8;min-width:0}
+.story-kicker{font-size:7px;font-weight:900;letter-spacing:1px;color:#8c7345;margin-bottom:10px}
+.chase-track,.pace-track{height:10px;position:relative;margin:7px 2px 10px;background:#e8e5de;border-radius:999px}
+.chase-fill{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:#d9a62e}
+.chase-runner{position:absolute;top:50%;transform:translate(-50%,-50%);font-size:13px;color:#173b63;text-shadow:0 0 0 #fff}
+.chase-finish{position:absolute;right:-2px;top:50%;transform:translateY(-50%);font-size:11px;color:#173b63}
+.story-values{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.story-values strong{font-size:16px;color:#173b63}.story-values span{font-size:6px;font-weight:900;letter-spacing:.6px;color:#9a7735;text-align:right}
+.story-block small{display:block;margin-top:3px;font-size:6px;font-weight:750;color:#7c8790}
+.pace-track{margin-top:13px;background:linear-gradient(90deg,#eef1f3 0,#eef1f3 84.5%,#f7ead0 84.5%,#f7ead0 100%)}
+.pace-benchmark{position:absolute;left:85.1%;top:-6px;height:22px;border-left:2px dashed #b58b3d}
+.pace-benchmark:after{content:"AVG";position:absolute;top:-10px;left:3px;font-size:5px;font-style:normal;font-weight:900;color:#9a7735}
+.pace-current{position:absolute;left:72.5%;top:50%;transform:translate(-50%,-50%);font-size:6px;font-weight:900;color:#173b63;white-space:nowrap}
+.pace-origin{position:absolute;left:0;top:-12px;font-size:5px;font-weight:850;color:#8a949b}
+@media(max-width:899px){
+ .mtd-story-grid{gap:5px;margin-top:8px}
+ .story-block{padding:7px 7px}
+ .story-kicker{font-size:5.5px;margin-bottom:7px}
+ .chase-track,.pace-track{height:7px;margin-bottom:7px}
+ .chase-runner{font-size:9px}.chase-finish{font-size:8px}
+ .story-values strong{font-size:11px}.story-values span{font-size:4.5px}
+ .story-block small{font-size:4.5px}
+ .pace-benchmark{height:17px;top:-5px}.pace-current{font-size:4.5px}
+}
