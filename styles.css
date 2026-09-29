@@ -1225,3 +1225,13 @@ body.sidebar-collapsed .nav-group>.board-parent:before{content:"◉";font-size:1
 .avg26-legend{display:flex;align-items:center;color:#9a7000!important}
 .avg26-legend i{display:inline-block!important;width:18px!important;height:0!important;margin:0 6px 2px 0!important;background:none!important;border-top:2px dashed var(--year-current,#d9a62e)}
 @media(max-width:899px){.journey26-average-label{font-size:8px}.journey-legend{flex-wrap:wrap}.avg26-legend{white-space:nowrap}}
+
+
+/* Average benchmark semantic color: RED (exception to year palette) */
+.journey26-average{stroke:#c94343!important}
+.journey26-average-label{fill:#b83232!important}
+.avg26-legend{color:#b83232!important}
+.avg26-legend i{border-top-color:#c94343!important}
+.product-history-legend .avg i{border-color:#c94343!important}
+.history-lines .line-average{stroke:#c94343!important}
+.avg-label{color:#a92f2f!important;border-color:#e0a6a6!important;background:#fff3f3!important}
