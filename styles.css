@@ -1134,3 +1134,31 @@ body.sidebar-collapsed .nav-group>.board-parent:before{content:"◉";font-size:1
  .product-kpi{padding:16px 13px}
  .product-kpi strong{font-size:22px}
 }
+
+/* Product 3-year monthly history */
+.product-history-panel{margin:14px;border:1px solid #cbd6df;border-radius:12px;background:#fff;overflow:hidden}
+.product-history-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px;border-bottom:1px solid #dce4ea;background:#f7f9fb}
+.product-history-head span{display:block;font-size:7px;font-weight:800;letter-spacing:1px;color:#a17b36;margin-bottom:4px}
+.product-history-head strong{font-size:15px;color:#173a5c}
+.product-history-head>b{font-size:7px;letter-spacing:1px;color:#7c8892}
+.product-history-legend{display:flex;gap:18px;align-items:center;padding:12px 16px 4px;font-size:8px;font-weight:800;color:#5d6974}
+.product-history-legend span{display:flex;align-items:center;gap:6px}
+.product-history-legend i{width:9px;height:9px;border-radius:2px;background:#7890a5}
+.product-history-legend .hist-2024{background:#a9b7c3}.product-history-legend .hist-2025{background:#b99144}.product-history-legend .hist-2026{background:#214f7c}
+.product-history-legend .avg i{width:18px;height:0;border-radius:0;background:none;border-top:2px dashed #9d6f26}
+.product-history-chart{position:relative;height:245px;margin:6px 16px 16px;padding:0 0 28px;border-left:1px solid #cfd8df;border-bottom:1px solid #cfd8df}
+.history-grid-lines{position:absolute;inset:0 0 28px 0;display:flex;flex-direction:column;justify-content:space-between}
+.history-grid-lines i{display:block;border-top:1px solid #e6ebef}
+.history-empty{position:absolute;inset:35px 10px 55px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px dashed #d7dee4;border-radius:9px;background:#fafbfc;color:#7d8993;text-align:center}
+.history-empty strong{font-size:11px;letter-spacing:.8px;color:#526474;margin-bottom:6px}
+.history-empty small{font-size:9px}.history-empty em{font-style:normal;font-size:8px;color:#a17b36;margin-top:6px}
+.history-months{position:absolute;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(12,1fr)}
+.history-months span{text-align:center;font-size:7px;font-weight:800;color:#77838d}
+@media(max-width:899px){
+ .product-history-panel{margin:10px}
+ .product-history-head{padding:12px}
+ .product-history-legend{gap:10px;flex-wrap:wrap;padding:10px 12px 2px}
+ .product-history-chart{height:210px;margin:6px 10px 12px}
+ .history-months span{font-size:5.5px}
+ .history-empty{inset:28px 7px 50px}
+}
