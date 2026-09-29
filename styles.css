@@ -845,3 +845,24 @@ body.sidebar-collapsed .nav-group>.board-parent:before{content:"◉";font-size:1
     grid-template-columns:repeat(3,minmax(0,1fr))!important;
   }
 }
+
+/* Branch selector: contribution cards choose the single detail panel below */
+.branch-select-card{
+  appearance:none;
+  -webkit-appearance:none;
+  font:inherit;
+  color:inherit;
+  text-align:left;
+  cursor:pointer;
+  width:100%;
+}
+.branch-select-card:hover{
+  border-color:#b99652;
+  box-shadow:0 4px 14px rgba(78,63,37,.08);
+}
+.branch-select-card.selected{
+  border-color:#b99652;
+  box-shadow:inset 4px 0 #b08a45,0 4px 14px rgba(78,63,37,.08);
+  background:#fff9e9;
+}
+#branch-detail-slot{margin-top:20px}
