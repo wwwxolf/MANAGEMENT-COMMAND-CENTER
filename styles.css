@@ -1217,3 +1217,11 @@ body.sidebar-collapsed .nav-group>.board-parent:before{content:"◉";font-size:1
 /* Average belongs to current year, so it uses the same gold family */
 .product-history-legend .avg i,.history-lines .line-average{border-color:var(--year-current)!important;stroke:var(--year-current)!important}
 .avg-label{color:#8a6500!important;border-color:#dec47d!important;background:#fff8e6!important}
+
+
+/* Current-year monthly average benchmark */
+.journey26-average{stroke:var(--year-current,#d9a62e);stroke-width:1.8;stroke-dasharray:8 6;vector-effect:non-scaling-stroke;opacity:.95}
+.journey26-average-label{fill:#9a7000;font-size:9px;font-weight:900;letter-spacing:.35px}
+.avg26-legend{display:flex;align-items:center;color:#9a7000!important}
+.avg26-legend i{display:inline-block!important;width:18px!important;height:0!important;margin:0 6px 2px 0!important;background:none!important;border-top:2px dashed var(--year-current,#d9a62e)}
+@media(max-width:899px){.journey26-average-label{font-size:8px}.journey-legend{flex-wrap:wrap}.avg26-legend{white-space:nowrap}}
