@@ -1106,3 +1106,31 @@ body.sidebar-collapsed .nav-group>.board-parent:before{content:"◉";font-size:1
  .portfolio-share-legend{grid-template-columns:1fr;gap:6px}
  .portfolio-share-legend span{font-size:8px}
 }
+
+/* Horizontal product selector + monthly snapshot */
+.portfolio-product-row{grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:8px!important}
+.portfolio-product-row .portfolio-product-card{min-height:112px;padding:14px!important}
+.portfolio-product-row .portfolio-product-card>span{margin-bottom:14px;font-size:7px}
+.portfolio-product-row .portfolio-product-card>strong{font-size:14px;white-space:nowrap}
+.portfolio-product-row .portfolio-product-card>small{font-size:7.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.portfolio-product-row .portfolio-product-card>em{left:14px;bottom:11px;font-size:6.5px}
+#product-snapshot-slot{margin-top:14px}
+.product-snapshot-panel{overflow:hidden;border:1px solid #c7d3de;border-radius:14px;background:#eef3f7;box-shadow:0 10px 24px rgba(26,51,76,.08)}
+.product-snapshot-head{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 20px;background:#173a5c;color:#fff}
+.product-snapshot-head span{display:block;font-size:8px;font-weight:800;letter-spacing:1px;color:#dec17b;margin-bottom:4px}
+.product-snapshot-head h2{margin:0;font-size:22px;color:#fff}
+.product-snapshot-head>b{font-size:8px;letter-spacing:1px;color:#dfe8ef}
+.product-kpi-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:#cfd9e2}
+.product-kpi{padding:22px;background:#f8fafb}
+.product-kpi span{display:block;font-size:8px;font-weight:800;letter-spacing:.8px;color:#77838d;margin-bottom:10px}
+.product-kpi strong{display:block;font-size:30px;color:#173f67;margin-bottom:5px}
+.product-kpi small{font-size:8px;font-weight:800;letter-spacing:.8px;color:#a17b36}
+@media(max-width:899px){
+ .portfolio-product-row{display:grid!important;grid-template-columns:repeat(6,minmax(112px,1fr))!important;overflow-x:auto;gap:7px!important;padding-bottom:6px;scroll-snap-type:x proximity}
+ .portfolio-product-row .portfolio-product-card{min-height:104px!important;scroll-snap-align:start}
+ .portfolio-product-row .portfolio-product-card>strong{font-size:13px}
+ .product-snapshot-head{padding:13px 14px}
+ .product-snapshot-head h2{font-size:18px}
+ .product-kpi{padding:16px 13px}
+ .product-kpi strong{font-size:22px}
+}
