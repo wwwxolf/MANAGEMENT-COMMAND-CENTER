@@ -10,7 +10,7 @@ function toggleSidebar(){
     btn.title=collapsed?"Expand sidebar":"Collapse sidebar";
   }
 }
-function shell(body,crumb="BOARD / ALL COMPANIES"){app.innerHTML=`<div class="shell"><aside class="side"><button class="sidebar-toggle" type="button" onclick="toggleSidebar()" aria-label="Collapse sidebar" title="Collapse sidebar">‹</button><div class="brand">MANAGEMENT<br><span>COMMAND CENTER</span></div><div class="nav"><div class="nav-group"><button class="active board-parent" onclick="board()">◉ &nbsp; BOARD</button><div class="nav-sub"><button class="sub-active" onclick="board()">MBG EAST</button><button onclick="mbgWest()">MBG WEST</button><button onclick="mbgAll()">MBG</button></div></div><button class="detail-sales-nav" onclick="branchPerformance()">▦ &nbsp; DETAIL SALES</button><button class="product-portfolio-nav" onclick="productPortfolio()">◇ &nbsp; PRODUCT PORTFOLIO</button></div><div class="sidefoot"><span class="dot"></span>DATA STATUS · ONLINE<br>Last update · 10:42 WIB<br><br>MANAGEMENT USER</div></aside><main class="main"><header class="top"><div class="crumb">${crumb}</div><div class="controls"><div class="board-scope"><span>VIEWING</span><strong id="scopeLabel">MBG EAST</strong><i>●</i></div></div></header><div class="content">${body}</div></main></div>`}
+function shell(body,crumb="BOARD / ALL COMPANIES"){app.innerHTML=`<div class="shell"><aside class="side"><button class="sidebar-toggle" type="button" onclick="toggleSidebar()" aria-label="Collapse sidebar" title="Collapse sidebar">‹</button><div class="brand">MANAGEMENT<br><span>COMMAND CENTER</span></div><div class="nav"><div class="nav-group"><button class="active board-parent" onclick="board()">◉ &nbsp; BOARD</button><div class="nav-sub"><button class="sub-active" onclick="board()">MBG EAST</button><button onclick="mbgWest()">MBG WEST</button><button onclick="mbgAll()">MBG</button></div></div><button class="detail-sales-nav" onclick="branchPerformance()">▦ &nbsp; DETAIL SALES</button><button class="product-portfolio-nav" onclick="productPortfolio()">◇ &nbsp; PRODUCT PORTFOLIO</button><button class="key-account-nav" onclick="keyAccountIntelligence()">▣ &nbsp; KEY ACCOUNT INTELLIGENCE</button></div><div class="sidefoot"><span class="dot"></span>DATA STATUS · ONLINE<br>Last update · 10:42 WIB<br><br>MANAGEMENT USER</div></aside><main class="main"><header class="top"><div class="crumb">${crumb}</div><div class="controls"><div class="board-scope"><span>VIEWING</span><strong id="scopeLabel">MBG EAST</strong><i>●</i></div></div></header><div class="content">${body}</div></main></div>`}
 const kpi=(l,b,m1,v1,m2,v2,cl="")=>`<div class="card ${cl}"><div class="label">${l}</div><div class="big">${b}</div><div class="meta"><span>${m1}</span><strong>${v1}</strong></div><div class="meta"><span>${m2}</span><strong>${v2}</strong></div></div>`;
 function race(g,a){return `<div class="racegroup"><h4>${g}</h4>${a.map(x=>`<div class="race-row"><span>${x[0]}</span><div class="progress"><i style="width:${x[1]??0}%"></i></div><b class="${x[1]==null?'invalid-text':''}">${x[1]==null?'INVALID':x[1]+'%'}</b></div>`).join("")}</div>`}
 function board(){shell(`<div class="heading"><div><div class="eyebrow">MBG EAST · EXECUTIVE OVERVIEW</div><h1>MBG East Dashboard</h1><div class="dashboard-period">SEPTEMBER 2026</div><div class="sub">Monthly Sales Performance & Closing Forecast</div></div><span class="tag positive">LIVE VIEW</span></div>
@@ -38,6 +38,24 @@ function selectBranch(n){
   if(!slot||!window.renderSelectedBranch)return;
   slot.innerHTML=window.renderSelectedBranch(n);
   document.querySelectorAll(".branch-select-card").forEach(el=>el.classList.toggle("selected",el.dataset.branch===n));
+}
+
+function keyAccountIntelligence(){
+  shell('<div class="heading"><div><div class="eyebrow">MBG EAST · RESTRICTED CUSTOMER DATA</div><h1>Key Account Intelligence</h1><div class="dashboard-period">SEPTEMBER 2026</div><div class="sub">Pareto · customer concentration · key account performance</div></div><span class="tag kai-locked-tag">🔒 RESTRICTED</span></div><section class="kai-lock-screen"><div class="kai-lock-icon">🔒</div><div class="kai-lock-kicker">SECURE ACCESS</div><h2>Customer Intelligence Locked</h2><p>Enter your 4-digit access PIN. Your PIN determines which branch customer data you are authorized to view.</p><div class="kai-pin-display"><i></i><i></i><i></i><i></i></div><div class="kai-pin-pad"><button onclick="kaiPin(1)">1</button><button onclick="kaiPin(2)">2</button><button onclick="kaiPin(3)">3</button><button onclick="kaiPin(4)">4</button><button onclick="kaiPin(5)">5</button><button onclick="kaiPin(6)">6</button><button onclick="kaiPin(7)">7</button><button onclick="kaiPin(8)">8</button><button onclick="kaiPin(9)">9</button><button class="kai-clear" onclick="kaiClear()">CLEAR</button><button onclick="kaiPin(0)">0</button><button class="kai-enter" onclick="kaiEnter()">ENTER</button></div><div id="kaiPinStatus" class="kai-pin-status">ACCESS SCOPE WILL BE ASSIGNED BY PIN</div><div class="kai-access-note"><span>BRANCH PIN</span><strong>Authorized branch only</strong><span>MASTER PIN</span><strong>All MBG East branches</strong></div></section>',"MBG / EAST / KEY ACCOUNT INTELLIGENCE");
+  setScopeActive("MBG EAST","key-account");
+  window.kaiDigits=[];
+  kaiRenderPin();
+}
+function kaiRenderPin(){
+  const dots=document.querySelectorAll(".kai-pin-display i");
+  dots.forEach((d,i)=>d.classList.toggle("filled",i<(window.kaiDigits||[]).length));
+}
+function kaiPin(n){if(!window.kaiDigits)window.kaiDigits=[];if(window.kaiDigits.length<4)window.kaiDigits.push(n);kaiRenderPin()}
+function kaiClear(){window.kaiDigits=[];kaiRenderPin();const s=document.querySelector("#kaiPinStatus");if(s)s.textContent="ACCESS SCOPE WILL BE ASSIGNED BY PIN"}
+function kaiEnter(){
+  const s=document.querySelector("#kaiPinStatus");
+  if(s)s.textContent=(window.kaiDigits||[]).length===4?"PIN ACCESS FRAMEWORK READY · AUTHORIZATION NOT YET CONFIGURED":"ENTER 4 DIGITS";
+  window.kaiDigits=[];kaiRenderPin();
 }
 
 function productPortfolio(){
@@ -89,5 +107,7 @@ function setScopeActive(name, page="board"){
   document.querySelector(".detail-sales-nav").classList.toggle("active",page==="detail-sales");
   const productNav=document.querySelector(".product-portfolio-nav");
   if(productNav)productNav.classList.toggle("active",page==="product-portfolio");
+  const kaiNav=document.querySelector(".key-account-nav");
+  if(kaiNav)kaiNav.classList.toggle("active",page==="key-account");
   document.querySelectorAll(".nav-sub button").forEach(b=>b.classList.toggle("sub-active",onBoard&&b.textContent.trim()===name));
 }
