@@ -601,3 +601,107 @@ body.sidebar-collapsed .nav-group>.board-parent:before{content:"◉";font-size:1
 .detail-sales-annual .detail-annual-click.expanded .breakdown-link{
   opacity:.95!important;
 }
+
+
+/* MOBILE FINAL — annual cards stay horizontal on Home and Branch/Detail Sales.
+   Compact internal typography prevents cross-card overflow. */
+@media(max-width:899px){
+  .annual-summary-top .annual-cards-row,
+  .detail-sales-annual .annual-cards-row{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:6px!important;
+    width:100%!important;
+  }
+
+  .annual-summary-top .annual-cards-row .annual-box,
+  .annual-summary-top .annual-cards-row .annual-box-primary,
+  .detail-sales-annual .annual-cards-row .annual-box,
+  .detail-sales-annual .annual-cards-row .annual-box-primary{
+    width:auto!important;
+    min-width:0!important;
+    min-height:138px!important;
+    padding:10px 8px!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+  }
+
+  .annual-summary-top .annual-box>span,
+  .annual-summary-top .annual-box-primary>span,
+  .detail-sales-annual .annual-box>span,
+  .detail-sales-annual .annual-box-primary>span{
+    display:block!important;
+    min-width:0!important;
+    font-size:6.5px!important;
+    line-height:1.25!important;
+    letter-spacing:.25px!important;
+    white-space:normal!important;
+  }
+
+  .annual-summary-top .annual-box>strong,
+  .annual-summary-top .annual-box-primary>strong,
+  .detail-sales-annual .annual-box>strong,
+  .detail-sales-annual .annual-box-primary>strong{
+    display:block!important;
+    width:100%!important;
+    max-width:100%!important;
+    font-size:clamp(15px,3.65vw,18px)!important;
+    line-height:1.08!important;
+    letter-spacing:-.25px!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:clip!important;
+    margin:9px 0 7px!important;
+  }
+
+  .annual-summary-top .annual-box>small,
+  .annual-summary-top .annual-box-primary>small,
+  .detail-sales-annual .annual-box>small,
+  .detail-sales-annual .annual-box-primary>small{
+    display:block!important;
+    min-width:0!important;
+    font-size:6px!important;
+    line-height:1.25!important;
+    letter-spacing:.2px!important;
+    white-space:normal!important;
+  }
+
+  .annual-summary-top .annual-growth,
+  .detail-sales-annual .annual-growth{
+    display:block!important;
+    margin:2px 0 0!important;
+    font-size:6.5px!important;
+    line-height:1.15!important;
+    white-space:nowrap!important;
+  }
+
+  .annual-summary-top .annual-compare,
+  .annual-summary-top .annual-compare-dual,
+  .detail-sales-annual .annual-compare,
+  .detail-sales-annual .annual-compare-dual{
+    display:block!important;
+    margin:2px 0 0!important;
+    min-width:0!important;
+  }
+
+  .annual-summary-top .annual-compare small,
+  .detail-sales-annual .annual-compare small{
+    font-size:5.5px!important;
+    line-height:1.1!important;
+    letter-spacing:.2px!important;
+  }
+
+  .detail-sales-annual .detail-annual-click{
+    padding-bottom:32px!important;
+  }
+  .detail-sales-annual .breakdown-link{
+    left:8px!important;
+    bottom:10px!important;
+    font-size:6px!important;
+    letter-spacing:.35px!important;
+    white-space:nowrap!important;
+  }
+  .detail-sales-annual .collapse-arrow{
+    font-size:9px!important;
+  }
+}
