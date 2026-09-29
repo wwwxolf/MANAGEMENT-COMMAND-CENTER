@@ -1323,3 +1323,18 @@ body.sidebar-collapsed .nav-group>.board-parent:before{content:"◉";font-size:1
  .story-block small{font-size:4.5px}
  .pace-benchmark{height:17px;top:-5px}.pace-current{font-size:4.5px}
 }
+
+/* KAI customer health scanner + detail modal */
+.kai-customer-tiles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.kai-customer-tile{min-width:0;text-align:left;padding:13px 12px;border:1px solid #dce1e4;border-radius:9px;background:#fff;cursor:pointer;display:grid;gap:5px;transition:.15s}
+.kai-customer-tile:hover{border-color:#b58b3d;transform:translateY(-1px);box-shadow:0 6px 14px rgba(23,52,79,.08)}
+.kai-customer-tile>span{font-size:5.5px;font-weight:900;letter-spacing:.55px;color:#9a7735}.kai-customer-tile>strong{font-size:10px;color:#17344f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kai-customer-tile>em{font-style:normal;font-size:6px;font-weight:900;letter-spacing:.4px;display:flex;align-items:center;gap:4px}.kai-customer-tile>em i{width:6px;height:6px;border-radius:50%;background:currentColor}.kai-customer-tile>small{font-size:5px;color:#a0a6ab;margin-top:3px}
+.kai-customer-tile .growing{color:#35745a}.kai-customer-tile .stable{color:#416783}.kai-customer-tile .watch{color:#9a7735}.kai-customer-tile .declining{color:#b84444}
+.kai-modal-backdrop{position:fixed;inset:0;z-index:9999;background:rgba(14,31,47,.48);display:grid;place-items:center;padding:18px;backdrop-filter:blur(3px)}
+.kai-modal{position:relative;width:min(520px,94vw);background:#fffdf8;border:1px solid #d7d0c2;border-radius:14px;box-shadow:0 24px 70px rgba(10,30,48,.28);padding:24px}
+.kai-modal-close{position:absolute;right:14px;top:12px;border:0;background:transparent;color:#71808b;font-size:24px;cursor:pointer}.kai-modal-kicker{font-size:6px;font-weight:900;letter-spacing:1px;color:#a17b36}
+.kai-modal-title{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:7px 0 15px;border-bottom:1px solid #e3ded5}.kai-modal-title h3{margin:0;color:#17344f;font-size:21px}.kai-modal-title p{margin:3px 0 0;color:#879198;font-size:7px}.kai-modal-status{padding:7px 9px;border-radius:5px;font-size:6px;font-weight:900;letter-spacing:.5px}.kai-modal-status.growing{background:#edf7f1;color:#35745a}.kai-modal-status.stable{background:#eef5f8;color:#416783}.kai-modal-status.watch{background:#fff7e3;color:#9a7735}.kai-modal-status.declining{background:#fff0f0;color:#b84444}
+.kai-modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:15px 0}.kai-modal-grid>div{padding:12px;border:1px solid #e1e3e4;border-radius:7px;background:#fff;display:grid;gap:3px}.kai-modal-grid span,.kai-modal-insight span{font-size:5.5px;font-weight:900;letter-spacing:.55px;color:#8b949b}.kai-modal-grid strong{font-size:14px;color:#17344f}.kai-modal-grid small{font-size:5px;color:#a0a6ab}
+.kai-modal-insight{padding:11px 12px;border-left:3px solid #b58b3d;background:#f8f5ed}.kai-modal-insight p{margin:4px 0 0;font-size:8px;line-height:1.45;color:#5f6e78}.kai-modal-nav{display:flex;justify-content:space-between;align-items:center;margin-top:16px}.kai-modal-nav button{border:1px solid #d9dde0;border-radius:6px;background:#fff;padding:7px 10px;font-size:6px;font-weight:850;color:#173b63;cursor:pointer}.kai-modal-nav button:disabled{opacity:.3;cursor:default}.kai-modal-nav b{font-size:6px;color:#8c969d}
+@media(max-width:899px){.kai-customer-tiles{display:flex;overflow-x:auto;gap:6px;padding-bottom:5px;scroll-snap-type:x proximity}.kai-customer-tile{flex:0 0 118px;scroll-snap-align:start;padding:10px}.kai-customer-tile>strong{font-size:8px}.kai-modal{padding:19px 15px}.kai-modal-title h3{font-size:17px}.kai-modal-grid{gap:6px}.kai-modal-grid>div{padding:9px}.kai-modal-grid strong{font-size:11px}}
