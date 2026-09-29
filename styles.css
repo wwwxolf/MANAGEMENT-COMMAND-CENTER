@@ -1078,3 +1078,31 @@ body.sidebar-collapsed .nav-group>.board-parent:before{content:"◉";font-size:1
   .portfolio-coming{display:block}
   .portfolio-coming p{text-align:left;margin-top:7px}
 }
+
+/* Product portfolio share donut */
+.portfolio-share-panel{display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:center;margin:0 0 16px;padding:20px 24px;border:1px solid #d4dbe1;border-radius:14px;background:#f8fafb}
+.portfolio-share-copy span{display:block;font-size:8px;font-weight:800;letter-spacing:1.2px;color:#a17a34;margin-bottom:6px}
+.portfolio-share-copy strong{display:block;font-size:20px;color:#17344f;margin-bottom:5px}
+.portfolio-share-copy small{font-size:9px;color:#77818a}
+.portfolio-share-visual{display:flex;align-items:center;gap:26px}
+.portfolio-donut{width:154px;height:154px;flex:0 0 154px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(#204d79 0 59.9%,#b89043 59.9% 80.8%,#66819a 80.8% 96.9%,#c6a969 96.9% 99.8%,#98a8b6 99.8% 100%)}
+.portfolio-donut:before{content:"";position:absolute}
+.portfolio-donut-center{width:96px;height:96px;border-radius:50%;background:#f8fafb;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 0 1px rgba(30,61,89,.05)}
+.portfolio-donut-center strong{font-size:18px;color:#17344f}
+.portfolio-donut-center small{font-size:7px;font-weight:800;letter-spacing:.8px;color:#8a9299;margin-top:3px}
+.portfolio-share-legend{display:grid;grid-template-columns:repeat(2,minmax(120px,1fr));gap:9px 20px;flex:1}
+.portfolio-share-legend span{display:grid;grid-template-columns:8px 1fr auto;gap:8px;align-items:center;font-size:9px}
+.portfolio-share-legend i{width:8px;height:8px;border-radius:50%}
+.portfolio-share-legend b{color:#52616e;font-size:8px;letter-spacing:.5px}
+.portfolio-share-legend strong{color:#17344f;font-size:10px}
+.ps-silicone{background:#204d79}.ps-acp{background:#b89043}.ps-godia{background:#66819a}.ps-insulasi{background:#c6a969}.ps-ared{background:#98a8b6}.ps-upvc{background:#d9dee2}
+@media(max-width:899px){
+ .portfolio-share-panel{grid-template-columns:1fr;padding:14px;gap:14px}
+ .portfolio-share-copy strong{font-size:17px}
+ .portfolio-share-visual{gap:14px}
+ .portfolio-donut{width:120px;height:120px;flex-basis:120px}
+ .portfolio-donut-center{width:74px;height:74px}
+ .portfolio-donut-center strong{font-size:14px}
+ .portfolio-share-legend{grid-template-columns:1fr;gap:6px}
+ .portfolio-share-legend span{font-size:8px}
+}
