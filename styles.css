@@ -1235,3 +1235,48 @@ body.sidebar-collapsed .nav-group>.board-parent:before{content:"◉";font-size:1
 .product-history-legend .avg i{border-color:#c94343!important}
 .history-lines .line-average{stroke:#c94343!important}
 .avg-label{color:#a92f2f!important;border-color:#e0a6a6!important;background:#fff3f3!important}
+
+
+/* Mobile executive KPI pair — keep MTD and 3M AVG visible side by side */
+@media(max-width:899px){
+  .executive-pair:not(.branch-exec){
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+    gap:8px!important;
+    align-items:stretch!important;
+  }
+  .executive-pair:not(.branch-exec)>.mtd-focus,
+  .executive-pair:not(.branch-exec)>.snapshot-card{
+    width:100%!important;max-width:none!important;min-width:0!important;
+    margin:0!important;padding:12px!important;
+  }
+  .executive-pair:not(.branch-exec) .mtd-focus .label,
+  .executive-pair:not(.branch-exec) .snapshot-card .label{
+    font-size:6.5px!important;letter-spacing:.55px!important;
+  }
+  .executive-pair:not(.branch-exec) .mtd-main{
+    display:flex!important;align-items:flex-end!important;gap:7px!important;
+    margin:6px 0 8px!important;
+  }
+  .executive-pair:not(.branch-exec) .mtd-focus .mtd-main .big,
+  .executive-pair:not(.branch-exec) .snapshot-card .snapshot-primary-value{
+    font-size:27px!important;letter-spacing:-.7px!important;
+  }
+  .executive-pair:not(.branch-exec) .achievement{font-size:11px!important;padding-left:7px!important}
+  .executive-pair:not(.branch-exec) .achievement small{font-size:5px!important}
+  .executive-pair:not(.branch-exec) .achievement-scale{height:6px!important;margin:7px 0 18px!important}
+  .executive-pair:not(.branch-exec) .threshold-label{font-size:5px!important}
+  .executive-pair:not(.branch-exec) .mtd-metrics-box{grid-template-columns:1fr!important}
+  .executive-pair:not(.branch-exec) .mtd-metrics-box .meta{padding:7px 8px!important;font-size:6.5px!important}
+  .executive-pair:not(.branch-exec) .snapshot-head h3{font-size:9px!important}
+  .executive-pair:not(.branch-exec) .snapshot-primary{gap:6px!important;margin:7px 0 10px!important}
+  .executive-pair:not(.branch-exec) .snapshot-primary-label{font-size:5.5px!important;padding-bottom:2px!important}
+  .executive-pair:not(.branch-exec) .realization-strip>div{padding:6px 5px!important}
+  .executive-pair:not(.branch-exec) .realization-strip span,
+  .executive-pair:not(.branch-exec) .avg-product-grid span{font-size:4.5px!important}
+  .executive-pair:not(.branch-exec) .realization-strip strong{font-size:9px!important}
+  .executive-pair:not(.branch-exec) .avg-product-title{font-size:4.5px!important;margin:7px 0 4px!important}
+  .executive-pair:not(.branch-exec) .avg-product-grid>div{padding:5px!important}
+  .executive-pair:not(.branch-exec) .avg-product-grid strong{font-size:7.5px!important}
+  .executive-pair:not(.branch-exec) .drill-hint{font-size:5px!important}
+}
