@@ -389,7 +389,7 @@ body{background:var(--bg);color:var(--text)}
   margin:7px 0 5px!important;
 }
 @media(max-width:899px){
-  /* Keep Annual Revenue compact on phones: 2026 / 2025 / 2024 stay in one row */
+  /* Mobile annual revenue: three compact cards, with typography constrained to each card */
   .annual-summary-top .annual-cards-row{
     grid-template-columns:repeat(3,minmax(0,1fr))!important;
     gap:6px!important;
@@ -398,28 +398,47 @@ body{background:var(--bg);color:var(--text)}
   .annual-summary-top .annual-cards-row .annual-box-primary{
     width:auto!important;
     min-width:0!important;
-    min-height:104px!important;
-    padding:9px 8px!important;
+    min-height:108px!important;
+    padding:8px 7px!important;
+    overflow:hidden!important;
   }
   .annual-summary-top .annual-cards-row .annual-box>span,
   .annual-summary-top .annual-cards-row .annual-box-primary>span{
-    gap:3px!important;
-    font-size:7px!important;
-    letter-spacing:.45px!important;
+    display:block!important;
+    font-size:6.5px!important;
+    line-height:1.25!important;
+    letter-spacing:.25px!important;
+    white-space:normal!important;
   }
   .annual-summary-top .annual-cards-row .annual-box>strong,
   .annual-summary-top .annual-cards-row .annual-box-primary>strong{
-    font-size:clamp(16px,4.8vw,22px)!important;
+    display:block!important;
+    max-width:100%!important;
+    font-size:clamp(14px,3.7vw,18px)!important;
     line-height:1.05!important;
+    letter-spacing:-.35px!important;
     white-space:nowrap!important;
+    overflow:hidden!important;
     margin:7px 0 5px!important;
   }
   .annual-summary-top .annual-cards-row .annual-box>small,
   .annual-summary-top .annual-cards-row .annual-box-primary>small{
-    font-size:6.5px!important;
-    letter-spacing:.45px!important;
+    font-size:6px!important;
+    line-height:1.25!important;
+    letter-spacing:.2px!important;
+    white-space:normal!important;
   }
-  .annual-summary-top .annual-growth{font-size:7px!important}
+  .annual-summary-top .annual-growth{
+    display:block!important;
+    margin-top:2px!important;
+    font-size:6.5px!important;
+    white-space:nowrap!important;
+  }
+  .annual-summary-top .annual-compare,
+  .annual-summary-top .annual-compare-dual{
+    display:block!important;
+    min-width:0!important;
+  }
 }
 
 
